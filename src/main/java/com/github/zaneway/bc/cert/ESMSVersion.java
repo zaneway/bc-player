@@ -17,12 +17,18 @@ public class ESMSVersion extends ASN1Object {
       return (ESMSVersion) o;
     } else if (o instanceof Integer) {
       return new ESMSVersion((Integer) o);
+    }else if (o != null){
+      return new ESMSVersion(ASN1Integer.getInstance(o));
     }
     return null;
   }
 
   private ESMSVersion(int version) {
     this.version = version;
+  }
+
+  private ESMSVersion(ASN1Integer version) {
+    this.version = version.getValue().intValueExact();
   }
 
 
