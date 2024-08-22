@@ -1,6 +1,7 @@
 package com.github.zaneway.bc.sm2;
 
 import java.io.IOException;
+import lombok.Getter;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -10,6 +11,7 @@ import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DLSequence;
 
+@Getter
 public class SM2Cipher extends ASN1Object {
 
   private final ASN1Sequence seq;

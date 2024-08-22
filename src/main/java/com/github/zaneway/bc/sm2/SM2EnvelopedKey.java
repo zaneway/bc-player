@@ -1,5 +1,6 @@
 package com.github.zaneway.bc.sm2;
 
+import lombok.Getter;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
@@ -8,11 +9,12 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
+@Getter
 public class SM2EnvelopedKey extends ASN1Object {
 
   private AlgorithmIdentifier symAlgID;
   private SM2Cipher symEncryptedKey;
-  private SM2PublicKey sm2PublicKey;
+  private ASN1BitString sm2PublicKey;
   private ASN1BitString sm2EncryptedPrivateKey;
 
   public static SM2EnvelopedKey getInstance(Object obj) {
@@ -27,7 +29,7 @@ public class SM2EnvelopedKey extends ASN1Object {
   private SM2EnvelopedKey(ASN1Sequence seq) {
     symAlgID = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
     symEncryptedKey = SM2Cipher.getInstance(seq.getObjectAt(1));
-    sm2PublicKey = SM2PublicKey.getInstance(seq.getObjectAt(2));
+    sm2PublicKey = ASN1BitString.getInstance(seq.getObjectAt(2));
     sm2EncryptedPrivateKey = ASN1BitString.getInstance(seq.getObjectAt(3));
   }
 
@@ -40,4 +42,5 @@ public class SM2EnvelopedKey extends ASN1Object {
     v.add(sm2EncryptedPrivateKey);
     return new DERSequence(v);
   }
+
 }
