@@ -12,6 +12,7 @@
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <bouncy.version>1.81</bouncy.version>
   </properties>
 
 
@@ -20,27 +21,28 @@
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk18on</artifactId>
-      <version>1.78.1</version>
+      <version>${bouncy.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on -->
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcpkix-jdk18on</artifactId>
-      <version>1.78.1</version>
+      <version>${bouncy.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcutil-jdk18on -->
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcutil-jdk18on</artifactId>
-      <version>1.78.1</version>
+      <version>${bouncy.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.34</version>
+      <scope>compile</scope>
     </dependency>
 
 
